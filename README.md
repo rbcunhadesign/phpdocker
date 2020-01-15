@@ -17,7 +17,7 @@ Docker made simple
 ### Database Admin tools
 - [ ] Adminer (PHPMyAdmin alternative)
 ### Cache Engines
-- [ ] Redis
+- [x] Redis
 - [ ] Memcached
 ### Message Brokers
 - [ ] Laravel Horizon
