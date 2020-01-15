@@ -11,7 +11,7 @@ Docker made simple
 ### Databases
 - [ ] MySQL
 - [ ] PostgresSQL
-- [ ] MariaDB
+- [x] MariaDB
 - [ ] MSSQL
 - [ ] MongoDB
 ### Database Admin tools
