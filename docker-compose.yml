@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  ### NGINX Server #########################################
+  nginx:
+    build:
+      context: ./nginx
+    volumes:
+      - ${NGINX_SITES_PATH}:/etc/nginx/sites-available
+      - ${NGINX_SSL_PATH}:/etc/nginx/ssl
+    ports:
+      - 8080:80

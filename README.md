@@ -3,7 +3,7 @@ Docker made simple
 
 ## Available Containers
 ### Web Servers
-- [ ] Nginx
+- [x] Nginx
 - [ ] Apache
 - [ ] Caddy
 ### PHP Compiler
