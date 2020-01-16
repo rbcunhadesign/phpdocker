@@ -7,7 +7,7 @@ Docker made simple
 - [ ] Apache
 - [ ] Caddy
 ### PHP Compiler
-- [ ] PHP FPM
+- [x] PHP FPM
 ### Databases
 - [ ] MySQL
 - [ ] PostgresSQL
@@ -15,7 +15,7 @@ Docker made simple
 - [ ] MSSQL
 - [ ] MongoDB
 ### Database Admin tools
-- [ ] Adminer (PHPMyAdmin alternative)
+- [x] Adminer (PHPMyAdmin alternative)
 ### Cache Engines
 - [x] Redis
 - [ ] Memcached
