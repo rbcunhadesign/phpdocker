@@ -82,6 +82,7 @@ services:
       context: ./mariadb
       args:
         - MARIADB_VERSION=${MARIADB_VERSION}
+        - TZ=${TIMEZONE}
     volumes:
       - ${DATA_PATH_HOST}/mariadb:/var/lib/mysql
       - ${MARIADB_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
@@ -137,6 +138,8 @@ services:
     environment:
       - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
       - DOCKER_HOST=tcp://docker-in-docker:2375
+    depends_on:
+      - workspace
     networks:
       - backend
 
