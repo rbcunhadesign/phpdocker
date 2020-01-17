@@ -13,6 +13,50 @@ volumes:
     driver: ${VOLUMES_DRIVER}
 
 services:
+  ### Workspace Utilities ##################################
+  workspace:
+    build:
+      context: ./workspace
+      args:
+        - UBUNTU_SOURCE=${UBUNTU_SOURCE}
+        - LARADOCK_PHP_VERSION=${PHP_VERSION}
+        - INSTALL_XDEBUG=${WORKSPACE_INSTALL_XDEBUG}
+        - INSTALL_LDAP=${WORKSPACE_INSTALL_LDAP}
+        - INSTALL_MONGO=${WORKSPACE_INSTALL_MONGO}
+        - INSTALL_PHPREDIS=${WORKSPACE_INSTALL_PHPREDIS}
+        - INSTALL_MSSQL=${WORKSPACE_INSTALL_MSSQL}
+        - NVM_NODEJS_ORG_MIRROR=${WORKSPACE_NVM_NODEJS_ORG_MIRROR}
+        - INSTALL_NODE=${WORKSPACE_INSTALL_NODE}
+        - NPM_REGISTRY=${WORKSPACE_NPM_REGISTRY}
+        - INSTALL_YARN=${WORKSPACE_INSTALL_YARN}
+        - INSTALL_NPM_VUE_CLI=${WORKSPACE_INSTALL_NPM_VUE_CLI}
+        - INSTALL_OCI8=${WORKSPACE_INSTALL_OCI8}
+        - COMPOSER_GLOBAL_INSTALL=${WORKSPACE_COMPOSER_GLOBAL_INSTALL}
+        - COMPOSER_AUTH=${WORKSPACE_COMPOSER_AUTH}
+        - COMPOSER_REPO_PACKAGIST=${WORKSPACE_COMPOSER_REPO_PACKAGIST}
+        - INSTALL_PRESTISSIMO=${WORKSPACE_INSTALL_PRESTISSIMO}
+        - INSTALL_IMAGEMAGICK=${WORKSPACE_INSTALL_IMAGEMAGICK}
+        - INSTALL_DUSK_DEPS=${WORKSPACE_INSTALL_DUSK_DEPS}
+        - INSTALL_YAML=${WORKSPACE_INSTALL_YAML}
+        - PUID=${WORKSPACE_PUID}
+        - PGID=${WORKSPACE_PGID}
+        - CHROME_DRIVER_VERSION=${WORKSPACE_CHROME_DRIVER_VERSION}
+        - NODE_VERSION=${WORKSPACE_NODE_VERSION}
+        - YARN_VERSION=${WORKSPACE_YARN_VERSION}
+        - TZ=${TIMEZONE}
+    volumes:
+      - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
+#      - ./php-worker/supervisord.d:/etc/supervisord.d
+    extra_hosts:
+      - "dockerhost:${DOCKER_HOST_IP}"
+    tty: true
+    environment:
+      - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
+      - DOCKER_HOST=tcp://docker-in-docker:2375
+    networks:
+      - backend
+
+
   ### NGINX Server #########################################
   nginx:
     build:
