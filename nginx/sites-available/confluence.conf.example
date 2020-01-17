@@ -40,4 +40,6 @@ server {
 
     error_log /var/log/nginx/bookchangerru_error.log;
     access_log /var/log/nginx/bookchangerru_access.log;
+
+    include h5bp/basic.conf;
 }
