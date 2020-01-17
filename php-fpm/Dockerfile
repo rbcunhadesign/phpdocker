@@ -157,12 +157,7 @@ RUN if [ ${INSTALL_OCI8} = true ]; then \
 ###########################################################################
 # Opcache:
 ###########################################################################
-
-ARG INSTALL_OPCACHE=false
-
-RUN if [ ${INSTALL_OPCACHE} = true ]; then \
-    docker-php-ext-install opcache \
-;fi
+RUN docker-php-ext-install opcache
 
 # Copy opcache configration
 COPY ./opcache.ini /usr/local/etc/php/conf.d/opcache.ini
